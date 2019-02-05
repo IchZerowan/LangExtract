@@ -10,16 +10,35 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.langExtract"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "LangExtract",
+			"properties": {
+				"langExtract.langFile": {
+					"type": "string",
+					"default": "lang/lang_en.php",
+					"scope": "resource",
+					"description": "Relative lang file name"
+				}
+			}
+		},
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "extension.langExtract",
+				"title": "Extract lang resource"
 			}
-		]
+		],
+		"menus": {
+			"editor/context": [{
+				"when": "resourceLangId == php && editorHasSelection",
+				"command": "extension.langExtract",
+				"group": "navigation"
+		  	}]
+		}		
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
