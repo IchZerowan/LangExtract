@@ -12,11 +12,3 @@ This extension contributes the following settings:
 
 * `langExtract.langFile`: relative path to $lang file
 
-## Release Notes
-
-Basic functionality
-
-### 1.0.0
-
-Basic functionality
-
